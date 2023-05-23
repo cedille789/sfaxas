@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button {
+  @apply rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200;
+}
+
+.filled-button {
+  @apply rounded-lg bg-gray-200 px-5 py-2.5 text-gray-900 hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-400;
+}

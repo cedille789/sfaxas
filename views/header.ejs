@@ -1,0 +1,92 @@
+<header
+  class="sticky left-0 top-0 h-16 max-h-16 w-full border-b border-gray-200 bg-white shadow-md"
+>
+  <nav
+    class="container m-auto flex h-full flex-wrap items-center justify-between p-4"
+  >
+    <div class="flex items-center">
+      <a href="/" class="mr-3">SFaxas</a>
+      <ul>
+        <li><a href="/game/new">새 게임</a></li>
+      </ul>
+    </div>
+    <ul class="flex items-center">
+      <% if (user?.id) { %>
+      <!-- <li class="mr-3">
+        <a href="/user/<%= user.id %>" class="flex items-center">
+          <svg width="2rem" height="2rem" class="mr-2">
+            <circle
+              cx="1rem"
+              cy="1rem"
+              r="1rem"
+              fill="<%= user.color %>"
+            ></circle>
+          </svg>
+          <span><%= user?.id %></span>
+        </a>
+      </li>
+      <li class="mr-3"><a href="/settings">설정</a></li>
+      <li><a href="/logout">로그아웃</a></li> -->
+
+      <button
+        id="dropdownUserAvatarButton"
+        data-dropdown-toggle="dropdownAvatar"
+        class="flex items-center rounded-full focus:ring-4 focus:ring-gray-300 focus:ring-offset-4"
+        type="button"
+      >
+        <svg width="2rem" height="2rem" class="mr-2">
+          <circle
+            cx="1rem"
+            cy="1rem"
+            r="1rem"
+            fill="<%= user.color %>"
+          ></circle>
+        </svg>
+        <span><%= user?.id %></span>
+      </button>
+
+      <!-- Dropdown menu -->
+      <div
+        id="dropdownAvatar"
+        class="hidden divide-y divide-gray-100 rounded-lg bg-white shadow-md"
+      >
+        <a
+          href="/user/<%= user.id %>"
+          class="block p-4 text-sm text-gray-900 hover:bg-gray-100"
+        >
+          <div class="flex items-center">
+            <svg width="2rem" height="2rem" class="mr-2">
+              <circle
+                cx="1rem"
+                cy="1rem"
+                r="1rem"
+                fill="<%= user.color %>"
+              ></circle>
+            </svg>
+            <span><%= user?.id %></span>
+          </div>
+        </a>
+        <ul
+          class="py-2 text-sm text-gray-700"
+          aria-labelledby="dropdownUserAvatarButton"
+        >
+          <li>
+            <a href="/dashboard" class="block px-4 py-2 hover:bg-gray-100"
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="/logout" class="block px-4 py-2 hover:bg-gray-100"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <% } else { %>
+      <li class="mr-3"><a href="/register">회원가입</a></li>
+      <li><a href="/login">로그인</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

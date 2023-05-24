@@ -4,7 +4,7 @@ Siulüsemüsifaxas, SFaxas는 인공 세계관 사트의 보드게임들을 플�
 
 ## DB
 
-### User
+### USER
 
 | FIELD    | TYPE          | DESCRIPTION            |
 | -------- | ------------- | ---------------------- |

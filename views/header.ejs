@@ -12,22 +12,6 @@
     </div>
     <ul class="flex items-center">
       <% if (user?.id) { %>
-      <!-- <li class="mr-3">
-        <a href="/user/<%= user.id %>" class="flex items-center">
-          <svg width="2rem" height="2rem" class="mr-2">
-            <circle
-              cx="1rem"
-              cy="1rem"
-              r="1rem"
-              fill="<%= user.color %>"
-            ></circle>
-          </svg>
-          <span><%= user?.id %></span>
-        </a>
-      </li>
-      <li class="mr-3"><a href="/settings">설정</a></li>
-      <li><a href="/logout">로그아웃</a></li> -->
-
       <button
         id="dropdownUserAvatarButton"
         data-dropdown-toggle="dropdownAvatar"
@@ -45,14 +29,13 @@
         <span><%= user?.id %></span>
       </button>
 
-      <!-- Dropdown menu -->
       <div
         id="dropdownAvatar"
         class="hidden divide-y divide-gray-100 rounded-lg bg-white shadow-md"
       >
         <a
           href="/user/<%= user.id %>"
-          class="block p-4 text-sm text-gray-900 hover:bg-gray-100"
+          class="block p-4 text-sm hover:bg-gray-100"
         >
           <div class="flex items-center">
             <svg width="2rem" height="2rem" class="mr-2">
@@ -72,19 +55,19 @@
         >
           <li>
             <a href="/dashboard" class="block px-4 py-2 hover:bg-gray-100"
-              >Dashboard</a
+              >대시보드</a
             >
           </li>
           <li>
             <a href="/logout" class="block px-4 py-2 hover:bg-gray-100"
-              >Logout</a
+              >로그아웃</a
             >
           </li>
         </ul>
       </div>
 
       <% } else { %>
-      <li class="mr-3"><a href="/register">회원가입</a></li>
+      <li class="mr-3"><a href="/signup">회원가입</a></li>
       <li><a href="/login">로그인</a></li>
       <% } %>
     </ul>

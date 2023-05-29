@@ -1,0 +1,73 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+<title>회원가입 - SFaxas</title>
+{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-xs">
+  <h3 class="mb-4 text-center text-2xl font-semibold">회원가입</h3>
+  {% if errorMsg %}
+  <div class="alert-error" role="alert">{{ errorMsg }}</div>
+  {% endif %}
+  <form action="/signup" method="post" id="form">
+    <div class="mb-4">
+      <label for="id" class="block">아이디</label>
+      <input type="text" name="id" id="id" class="input w-full" required
+        minlength="2" maxlength="30" onchange="checkValid()">
+    </div>
+    <div class="mb-4">
+      <label for="password" class="block">비밀번호</label>
+      <input type="password" name="password" id="password" class="input w-full"
+        required minlength="8" maxlength="64" onchange="checkValid()">
+    </div>
+    <div class="mb-4">
+      <label for="password-again" class="block">비밀번호 확인</label>
+      <input type="password" id="password-again" class="input w-full" required
+        minlength="8" maxlength="64" onchange="checkValid()">
+    </div>
+    <div class="mb-4 flex items-center">
+      <label for="color" class="mr-2">색</label>
+      <input type="color" name="color" id="color">
+    </div>
+    <div class="text-center">
+      <button type="submit" id="submit-btn" class="filled-button">
+        회원가입
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const form = document.getElementById("form");
+  const id = document.getElementById("id");
+  const password = document.getElementById("password");
+  const passwordAgain = document.getElementById("password-again");
+  const color = document.getElementById("color");
+  const submitBtn = document.getElementById("submit-btn");
+
+  submitBtn.disabled = true;
+  color.value = "#" + Math.floor(Math.random() * 0x1000000)
+    .toString(16)
+    .padStart(6, "0");
+
+  form.addEventListener("submit", () => {
+    if (!checkValid()) return false;
+  });
+
+  function checkValid() {
+    let valid = id.value &&
+      password.value &&
+      passwordAgain.value &&
+      2 <= id.value.length <= 30 &&
+      8 <= password.value.length <= 64 &&
+      8 <= passwordAgain.value.length <= 64 &&
+      password.value == passwordAgain.value;
+
+    submitBtn.disabled = !valid;
+    return valid;
+  }
+</script>
+{% endblock %}

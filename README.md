@@ -32,11 +32,21 @@ Siulüsemüsifaxas, SFaxas는 인공 세계관 사트의 보드게임들을 플�
 - password, color 정보가 전달되어야 함
 - 유저 정보 반환
 
-#### api/login
+#### POST auth/signup
+
+새로운 계정 생성
+
+- password, color 정보가 전달되어야 함
+- **로그인 되어있으면 안됨**
+- 메인 페이지로 리다이렉트
+
+#### POST auth/login
 
 로그인
 
 - id, password 정보가 전달되어야 함
+- **로그인 되어있으면 안됨**
+- 메인 페이지로 리다이렉트
 
 #### GET api/users/{id}
 

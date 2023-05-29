@@ -1,21 +1,26 @@
 const express = require("express");
 const path = require("path");
+const nunjucks = require("nunjucks");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.set("view engine", "njk");
+nunjucks.configure("views", { express: app });
+
 app.use(express.static(path.join(__dirname, "public")));
 
-const user = { id: "", color: "skyblue" };
+app.use(express.urlencoded({ extended: true }));
+
+const user = null; //{ id: "Cedille", color: "skyblue" };
 
 app.get("/", (req, res) => {
   res.render("index", { user });
 });
 
-app.get("/signup", (req, res) => {
-  res.render("signup", { user });
+app.get("/register", (req, res) => {
+  res.render("register", { user });
 });
 
 app.get("/login", (req, res) => {
